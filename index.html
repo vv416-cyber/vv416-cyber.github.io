@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivaan Vijaykrishna - Resume</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --accent-color: #2b6cb0;
+            --text-color: #2d3748;
+            --text-light: #4a5568;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Header */
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            color: var(--primary-color);
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-separator {
+            color: var(--border-color);
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 1.75rem;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary-color);
+            border-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.25rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Experience & Education Items */
+        .item {
+            margin-bottom: 1.25rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .item-date, .item-location {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: right;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.35rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Skills & Interests */
+        .skills-group {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-group strong {
+            color: var(--primary-color);
+        }
+
+        /* Print Optimization */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .item-date, .item-location {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Vivaan Vijaykrishna</h1>
+            <div class="contact-info">
+                <span>Princeton, NJ</span>
+                <span class="contact-separator">|</span>
+                <span>609-455-6492</span>
+                <span class="contact-separator">|</span>
+                <a href="mailto:vvaanvk@gmail.com">vvaanvk@gmail.com</a>
+            </div>
+        </header>
+
+        <!-- Education -->
+        <section>
+            <h2>Education</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <span class="item-title">Rutgers University</span> – <span class="item-subtitle">Rutgers Business School</span>
+                    </div>
+                    <div class="item-location">Piscataway, NJ</div>
+                </div>
+                <div class="item-header">
+                    <div>Bachelor of Science in Finance | GPA: 3.7/4.0</div>
+                    <div class="item-date">Expected Graduation: May 2029</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <span class="item-title">South Brunswick High School</span>
+                    </div>
+                    <div class="item-location">South Brunswick, NJ</div>
+                </div>
+                <div class="item-header">
+                    <div>Cumulative GPA: 4.33</div>
+                    <div class="item-date">Graduation Date: June 2025</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section>
+            <h2>Work Experience</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <span class="item-title">Access Immigration Consulting Inc.</span> – <span class="item-subtitle">Intern</span>
+                    </div>
+                    <div class="item-location">New York City, NY</div>
+                </div>
+                <div class="item-header">
+                    <div></div>
+                    <div class="item-date">June 2026 – August 2026</div>
+                </div>
+                <ul>
+                    <li>Managed relationships with 40+ clients, communicated complex processes and regulatory requirements, navigating strict deadlines and high-stake outcomes.</li>
+                    <li>Synthesized large amounts of documentation such as financial and employment records, often incomplete or conflicting, to create case narratives, making informed judgements and assumptions.</li>
+                    <li>Effectively worked with clients to fill out immigration forms, such as I-730, N-400, and I-360, navigating them through complex wordings and questions.</li>
+                    <li>Tailored communication for clients across 10+ countries in Africa and South Asia, adjusting tone and information depth to ensure clarity for foreign clients.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <span class="item-title">Alba Life Sciences</span> – <span class="item-subtitle">Remote Intern</span>
+                    </div>
+                    <div class="item-location">Piscataway, NJ</div>
+                </div>
+                <div class="item-header">
+                    <div></div>
+                    <div class="item-date">July 2024 – September 2024</div>
+                </div>
+                <ul>
+                    <li>Conducted research on the pharmaceutical market, identifying key aspects such as approval dates, patent expiration dates, and time on the market to capitalize on sales.</li>
+                    <li>Organized data into spreadsheets to ensure that all information is easily accessible and ready to send to work superiors.</li>
+                    <li>Networked with representatives of pharmaceutical drugs and promoted company services to increase revenue and net profit.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Leadership Experience -->
+        <section>
+            <h2>Leadership Experience</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <span class="item-title">Hitops / Teen-Pep</span> – <span class="item-subtitle">Peer Leader</span>
+                    </div>
+                    <div class="item-location">South Brunswick, NJ</div>
+                </div>
+                <div class="item-header">
+                    <div></div>
+                    <div class="item-date">May 2024 – June 2025</div>
+                </div>
+                <ul>
+                    <li>Mentored underclassmen on sexual education, easing uncomfortable topics such as abstinence and STDs to assist students in becoming more comfortable with these topics.</li>
+                    <li>Prepared skits and engaging workshops for underclassmen to retain information better while maintaining a personable presence.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Community Service -->
+        <section>
+            <h2>Community Service</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <span class="item-title">Viking Marching Bands</span> – <span class="item-subtitle">Band Guide / Kitchen Support</span>
+                    </div>
+                    <div class="item-location">South Brunswick, NJ</div>
+                </div>
+                <div class="item-header">
+                    <div></div>
+                    <div class="item-date">September 2021 – September 2024</div>
+                </div>
+                <ul>
+                    <li>Guided multiple out-of-district bands to understand the layout and routine of the school to ensure smooth performances.</li>
+                    <li>Collaborated with other guides by communicating call-out times, sending consistent reminders, and monitoring the band to guarantee success.</li>
+                    <li>Worked in the kitchen to prepare food for the snack shack (burgers, hot dogs, drinks) and handled transport between the kitchen and snack shack.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills & Interests -->
+        <section>
+            <h2>Skills & Interests</h2>
+            <div class="skills-group">
+                <strong>Skills:</strong> Microsoft Office (Excel, PowerPoint) | Java | Python
+            </div>
+            <div class="skills-group">
+                <strong>Interests:</strong> Tech Consulting, Business Analytics, Traveling, Sports
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
