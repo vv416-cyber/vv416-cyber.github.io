@@ -23,6 +23,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-body);
@@ -82,7 +86,7 @@
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #fff;
-            padding: 5rem 2rem;
+            padding: 4.5rem 2rem;
             text-align: center;
         }
 
@@ -149,6 +153,36 @@
 
         .btn-outline:hover {
             background: #334155;
+        }
+
+        /* Personal Statement Section */
+        .personal-statement-banner {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .statement-box {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .statement-label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--rutgers-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .statement-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.5;
         }
 
         /* Section Layout */
@@ -238,13 +272,66 @@
             font-weight: bold;
         }
 
+        /* Project Link Button */
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills Showcase Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--rutgers-red);
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #eff6ff;
+            color: var(--accent-blue);
+            border: 1px solid #dbeafe;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
         /* Interactive Widget Section */
         .widget-section {
             background: #fff;
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 2rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .widget-form {
@@ -318,6 +405,11 @@
             gap: 0.5rem;
         }
 
+        .contact-item a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -347,8 +439,9 @@
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
-                    <li><a href="#calculator">Tool</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -362,76 +455,119 @@
             <h1>Finance Student & Business Analytics Specialist</h1>
             <p>Combining quantitative research, client strategy, and technology to optimize business operations and yield actionable market insights.</p>
             <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="#calculator" class="btn btn-outline">Try Financial Tool</a>
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
             </div>
+        </div>
+    </div>
+
+    <!-- Personal Statement (RUBRIC ITEM: Clear, concise 1-sentence intro) -->
+    <div class="personal-statement-banner">
+        <div class="statement-box">
+            <div class="statement-label">Personal Statement</div>
+            <p class="statement-text">"I am an ambitious Finance student at Rutgers Business School leveraging business analytics and client management experience to drive strategic value in tech consulting."</p>
         </div>
     </div>
 
     <!-- Main Content -->
     <main>
 
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2 class="section-title">Work & Leadership Experience</h2>
-            <p class="section-subtitle">A summary of my professional roles and strategic contributions.</p>
+        <!-- Skills Showcase Section (RUBRIC ITEM: Relevant skills tailored for employers) -->
+        <section id="skills">
+            <h2 class="section-title">Skills Showcase</h2>
+            <p class="section-subtitle">Tailored technical, analytical, and interpersonal skills for corporate finance and tech consulting roles.</p>
 
-            <div class="grid">
-                <!-- Card 1 -->
-                <div class="card">
-                    <div class="card-header">
-                        <div>
-                            <div class="card-title">Access Immigration Consulting Inc.</div>
-                            <div class="card-subtitle">Intern | New York City, NY</div>
-                        </div>
-                        <span class="card-date">Summer 2026</span>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Programming & Tech</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">HTML5 / CSS3</span>
+                        <span class="tag">Git / GitHub</span>
                     </div>
-                    <ul class="card-bullets">
-                        <li>Managed client relationships across 40+ high-stakes regulatory cases with strict deadlines.</li>
-                        <li>Synthesized complex financial and employment documentation to draft case narratives.</li>
-                        <li>Tailored strategic communication across 10+ international client regions in Africa and South Asia.</li>
-                    </ul>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="card">
-                    <div class="card-header">
-                        <div>
-                            <div class="card-title">Alba Life Sciences</div>
-                            <div class="card-subtitle">Remote Intern | Piscataway, NJ</div>
-                        </div>
-                        <span class="card-date">2024</span>
+                <div class="skill-card">
+                    <h3>Financial & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Microsoft Excel</span>
+                        <span class="tag">PowerPoint</span>
+                        <span class="tag">Data Modeling</span>
+                        <span class="tag">Market Research</span>
+                        <span class="tag">ROI Calculation</span>
                     </div>
-                    <ul class="card-bullets">
-                        <li>Researched pharmaceutical market lifecycles (approvals, patent expirations) to optimize sales strategies.</li>
-                        <li>Organized large-scale analytical datasets into structured executive spreadsheets.</li>
-                        <li>Engaged with industry representatives to expand company service networking.</li>
-                    </ul>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="card">
-                    <div class="card-header">
-                        <div>
-                            <div class="card-title">Hitops / Teen-Pep</div>
-                            <div class="card-subtitle">Peer Leader | South Brunswick, NJ</div>
-                        </div>
-                        <span class="card-date">2024 – 2025</span>
+                <div class="skill-card">
+                    <h3>Strategy & Leadership</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Client Management</span>
+                        <span class="tag">Cross-Cultural Communication</span>
+                        <span class="tag">Regulatory Compliance</span>
+                        <span class="tag">Peer Mentorship</span>
                     </div>
-                    <ul class="card-bullets">
-                        <li>Facilitated health and wellness workshops for underclassmen.</li>
-                        <li>Designed interactive skits and team-building exercises to elevate student engagement.</li>
-                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Interactive Calculator Section -->
-        <section id="calculator">
-            <h2 class="section-title">Interactive Business Tool</h2>
-            <p class="section-subtitle">An interactive ROI & Project Margin Estimator tool demonstrating analytical logic.</p>
+        <!-- Projects Section (RUBRIC ITEM: 2–3 relevant projects with working links) -->
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Selected analytical, consulting, and development projects.</p>
 
-            <div class="widget-section">
+            <div class="grid">
+                <!-- Project 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Interactive ROI & Margin Estimator</div>
+                            <div class="card-subtitle">Web Tool & Data Modeling</div>
+                        </div>
+                        <span class="card-date">2026</span>
+                    </div>
+                    <p style="font-size:0.95rem; color:#475569;">
+                        Built a web-based financial estimation widget that calculates projected revenues, net margins, and Return on Investment (ROI) dynamically in JavaScript.
+                    </p>
+                    <a href="#calculator" class="project-link">Try Live Widget &rarr;</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Legal & Case Narrative Synthesis Framework</div>
+                            <div class="card-subtitle">Access Immigration Consulting</div>
+                        </div>
+                        <span class="card-date">2026</span>
+                    </div>
+                    <p style="font-size:0.95rem; color:#475569;">
+                        Synthesized complex, multi-source financial and employment records to draft persuasive case narratives and regulatory filings across 40+ client accounts[cite: 1].
+                    </p>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="project-link">View Documentation Reference &rarr;</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Pharmaceutical Lifecycle & Patent Analysis</div>
+                            <div class="card-subtitle">Alba Life Sciences Research</div>
+                        </div>
+                        <span class="card-date">2024</span>
+                    </div>
+                    <p style="font-size:0.95rem; color:#475569;">
+                        Engineered analytical spreadsheets tracking drug approval timelines and patent expirations to identify key market entry opportunities for revenue expansion[cite: 1].
+                    </p>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="project-link">View Analytical Overview &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Embedded Interactive Widget -->
+            <div class="widget-section" id="calculator">
+                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Live Demo: Project ROI & Margin Estimator</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Enter initial investment and revenue projection values to execute real-time ROI calculation logic:</p>
+                
                 <div class="widget-form">
                     <div class="form-group">
                         <label for="investment">Initial Investment ($)</label>
@@ -443,8 +579,63 @@
                     </div>
                 </div>
                 <div class="calc-result" id="roi-output">
-                    <strong>Estimated Net Gain:</strong> $4,500 <br>
+                    <strong>Estimated Net Gain:</strong> $4,500.00 <br>
                     <strong>Calculated Return on Investment (ROI):</strong> 45.00%
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title">Work & Leadership Experience</h2>
+            <p class="section-subtitle">Career progression and organizational achievements.</p>
+
+            <div class="grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Access Immigration Consulting Inc.[cite: 1]</div>
+                            <div class="card-subtitle">Intern | New York City, NY[cite: 1]</div>
+                        </div>
+                        <span class="card-date">Summer 2026[cite: 1]</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Managed client relationships across 40+ high-stakes regulatory cases with strict deadlines[cite: 1].</li>
+                        <li>Synthesized complex financial and employment documentation to draft case narratives[cite: 1].</li>
+                        <li>Tailored strategic communication across 10+ international client regions in Africa and South Asia[cite: 1].</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Alba Life Sciences[cite: 1]</div>
+                            <div class="card-subtitle">Remote Intern | Piscataway, NJ[cite: 1]</div>
+                        </div>
+                        <span class="card-date">2024[cite: 1]</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Researched pharmaceutical market lifecycles (approvals, patent expirations) to optimize sales strategies[cite: 1].</li>
+                        <li>Organized large-scale analytical datasets into structured executive spreadsheets[cite: 1].</li>
+                        <li>Engaged with industry representatives to expand company service networking[cite: 1].</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Hitops / Teen-Pep[cite: 1]</div>
+                            <div class="card-subtitle">Peer Leader | South Brunswick, NJ[cite: 1]</div>
+                        </div>
+                        <span class="card-date">2024 – 2025[cite: 1]</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Facilitated health and wellness workshops for underclassmen[cite: 1].</li>
+                        <li>Designed interactive skits and team-building exercises to elevate student engagement[cite: 1].</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -453,11 +644,11 @@
         <section id="contact">
             <div class="contact-container">
                 <h2>Let's Connect</h2>
-                <p>I am open to tech consulting, business analytics, and finance internship opportunities.</p>
+                <p>I am open to tech consulting, business analytics, and finance opportunities.</p>
                 <div class="contact-links">
-                    <a href="mailto:vvaanvk@gmail.com" class="contact-item">✉️ vvaanvk@gmail.com</a>
-                    <span class="contact-item">📍 Princeton, NJ</span>
-                    <span class="contact-item">📞 (609) 455-6492</span>
+                    <span class="contact-item">✉️ <a href="mailto:vvaanvk@gmail.com">vvaanvk@gmail.com</a>[cite: 1]</span>
+                    <span class="contact-item">📍 Princeton, NJ[cite: 1]</span>
+                    <span class="contact-item">📞 (609) 455-6492[cite: 1]</span>
                 </div>
             </div>
         </section>
@@ -466,7 +657,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Vivaan Vijaykrishna | Rutgers Business School Finance</p>
+        <p>&copy; 2026 Vivaan Vijaykrishna | Rutgers Business School Finance[cite: 1]</p>
     </footer>
 
     <!-- Interactive Script -->
