@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivaan Vijaykrishna - Resume</title>
+    <title>Vivaan Vijaykrishna | Portfolio</title>
     <style>
         :root {
-            --primary-color: #1a365d;
-            --accent-color: #2b6cb0;
-            --text-color: #2d3748;
-            --text-light: #4a5568;
-            --bg-color: #f7fafc;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --sidebar-width: 280px;
         }
 
         * {
@@ -22,303 +23,428 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            padding: 2rem 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        /* Sidebar Navigation */
+        aside {
+            width: var(--sidebar-width);
+            background: #0f172a;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        /* Header */
-        header {
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
+        .profile h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.25rem;
         }
 
-        h1 {
-            font-size: 2.25rem;
-            color: var(--primary-color);
-            letter-spacing: -0.025em;
+        .profile p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        nav {
+            margin-top: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 0.75rem;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: block;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            background: #1e293b;
+            color: #fff;
+        }
+
+        .sidebar-contact {
+            border-top: 1px solid #334155;
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .sidebar-contact p {
             margin-bottom: 0.5rem;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-
-        .contact-info a {
-            color: var(--accent-color);
+        .sidebar-contact a {
+            color: #38bdf8;
             text-decoration: none;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        /* Main Content Container */
+        main {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1100px;
         }
 
-        .contact-separator {
-            color: var(--border-color);
+        .section {
+            margin-bottom: 3.5rem;
+            scroll-margin-top: 2rem;
         }
 
-        /* Section Styling */
-        section {
-            margin-bottom: 1.75rem;
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        h2 {
-            font-size: 1.15rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--primary-color);
-            border-bottom: 1.5rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.25rem;
-            margin-bottom: 1rem;
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
         }
 
-        /* Experience & Education Items */
-        .item {
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
             margin-bottom: 1.25rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .item-header {
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
             flex-wrap: wrap;
         }
 
-        .item-title {
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: var(--text-color);
+        .role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
         }
 
-        .item-subtitle {
-            font-style: italic;
-            color: var(--text-light);
-            font-size: 0.95rem;
+        .company {
+            color: var(--primary);
+            font-weight: 500;
         }
 
-        .item-date, .item-location {
-            font-size: 0.9rem;
-            color: var(--text-light);
+        .meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
             text-align: right;
         }
 
-        ul {
-            list-style-type: disc;
-            margin-left: 1.25rem;
-            margin-top: 0.5rem;
+        ul.bullets {
+            list-style-type: none;
+            margin-top: 0.75rem;
         }
 
-        li {
-            margin-bottom: 0.35rem;
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-
-        /* Skills & Interests */
-        .skills-group {
-            font-size: 0.95rem;
+        ul.bullets li {
+            position: relative;
+            padding-left: 1.25rem;
             margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        .skills-group strong {
-            color: var(--primary-color);
+        ul.bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
         }
 
-        /* Print Optimization */
-        @media print {
+        /* Tags / Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .tag-group {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .tag-group h3 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
             body {
-                background-color: #fff;
-                padding: 0;
-            }
-            .container {
-                box-shadow: none;
-                padding: 0;
-                max-width: 100%;
-            }
-            a {
-                text-decoration: none;
-                color: inherit;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 1.5rem;
-            }
-            .item-header {
                 flex-direction: column;
-                align-items: flex-start;
             }
-            .item-date, .item-location {
+            aside {
+                width: 100%;
+                position: relative;
+                padding: 2rem;
+            }
+            main {
+                margin-left: 0;
+                padding: 2rem 1.5rem;
+            }
+            .card-header {
+                flex-direction: column;
+            }
+            .meta {
                 text-align: left;
+                margin-top: 0.25rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>Vivaan Vijaykrishna</h1>
-            <div class="contact-info">
-                <span>Princeton, NJ</span>
-                <span class="contact-separator">|</span>
-                <span>609-455-6492</span>
-                <span class="contact-separator">|</span>
-                <a href="mailto:vvaanvk@gmail.com">vvaanvk@gmail.com</a>
+    <!-- Sidebar -->
+    <aside>
+        <div>
+            <div class="profile">
+                <h1>Vivaan Vijaykrishna</h1>
+                <p>Finance Student & Analyst</p>
             </div>
-        </header>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
+                    <li><a href="#service">Community Service</a></li>
+                    <li><a href="#skills">Skills & Interests</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="sidebar-contact">
+            <p>📍 Princeton, NJ</p>
+            <p>📞 609-455-6492</p>
+            <p>✉️ <a href="mailto:vvaanvk@gmail.com">vvaanvk@gmail.com</a></p>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main>
+
+        <!-- About Intro -->
+        <section id="about" class="section">
+            <div class="card" style="background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; border: none;">
+                <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem; color: #fff;">Hello, I'm Vivaan.</h2>
+                <p style="color: #dbeafe; font-size: 1rem; line-height: 1.6;">
+                    Finance student at Rutgers Business School with experience in market research, regulatory documentation, and client relations. Interested in tech consulting and business analytics.
+                </p>
+            </div>
+        </section>
 
         <!-- Education -->
-        <section>
-            <h2>Education</h2>
+        <section id="education" class="section">
+            <h2 class="section-title">Education</h2>
             
-            <div class="item">
-                <div class="item-header">
+            <div class="card">
+                <div class="card-header">
                     <div>
-                        <span class="item-title">Rutgers University</span> – <span class="item-subtitle">Rutgers Business School</span>
+                        <div class="role">Rutgers University[cite: 1]</div>
+                        <div class="company">Rutgers Business School[cite: 1]</div>
                     </div>
-                    <div class="item-location">Piscataway, NJ</div>
-                </div>
-                <div class="item-header">
-                    <div>Bachelor of Science in Finance | GPA: 3.7/4.0</div>
-                    <div class="item-date">Expected Graduation: May 2029</div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <div>
-                        <span class="item-title">South Brunswick High School</span>
+                    <div class="meta">
+                        <div>Piscataway, NJ[cite: 1]</div>
+                        <div>Expected Graduation: May 2029[cite: 1]</div>
                     </div>
-                    <div class="item-location">South Brunswick, NJ</div>
                 </div>
-                <div class="item-header">
-                    <div>Cumulative GPA: 4.33</div>
-                    <div class="item-date">Graduation Date: June 2025</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Work Experience -->
-        <section>
-            <h2>Work Experience</h2>
-
-            <div class="item">
-                <div class="item-header">
-                    <div>
-                        <span class="item-title">Access Immigration Consulting Inc.</span> – <span class="item-subtitle">Intern</span>
-                    </div>
-                    <div class="item-location">New York City, NY</div>
-                </div>
-                <div class="item-header">
-                    <div></div>
-                    <div class="item-date">June 2026 – August 2026</div>
-                </div>
-                <ul>
-                    <li>Managed relationships with 40+ clients, communicated complex processes and regulatory requirements, navigating strict deadlines and high-stake outcomes.</li>
-                    <li>Synthesized large amounts of documentation such as financial and employment records, often incomplete or conflicting, to create case narratives, making informed judgements and assumptions.</li>
-                    <li>Effectively worked with clients to fill out immigration forms, such as I-730, N-400, and I-360, navigating them through complex wordings and questions.</li>
-                    <li>Tailored communication for clients across 10+ countries in Africa and South Asia, adjusting tone and information depth to ensure clarity for foreign clients.</li>
+                <ul class="bullets">
+                    <li>Bachelor of Science in Finance[cite: 1]</li>
+                    <li>GPA: 3.7 / 4.0[cite: 1]</li>
                 </ul>
             </div>
 
-            <div class="item">
-                <div class="item-header">
+            <div class="card">
+                <div class="card-header">
                     <div>
-                        <span class="item-title">Alba Life Sciences</span> – <span class="item-subtitle">Remote Intern</span>
+                        <div class="role">South Brunswick High School[cite: 1]</div>
                     </div>
-                    <div class="item-location">Piscataway, NJ</div>
+                    <div class="meta">
+                        <div>South Brunswick, NJ[cite: 1]</div>
+                        <div>Graduated: June 2025[cite: 1]</div>
+                    </div>
                 </div>
-                <div class="item-header">
-                    <div></div>
-                    <div class="item-date">July 2024 – September 2024</div>
-                </div>
-                <ul>
-                    <li>Conducted research on the pharmaceutical market, identifying key aspects such as approval dates, patent expiration dates, and time on the market to capitalize on sales.</li>
-                    <li>Organized data into spreadsheets to ensure that all information is easily accessible and ready to send to work superiors.</li>
-                    <li>Networked with representatives of pharmaceutical drugs and promoted company services to increase revenue and net profit.</li>
+                <ul class="bullets">
+                    <li>Cumulative GPA: 4.33[cite: 1]</li>
                 </ul>
             </div>
         </section>
 
-        <!-- Leadership Experience -->
-        <section>
-            <h2>Leadership Experience</h2>
+        <!-- Experience -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Work Experience</h2>
 
-            <div class="item">
-                <div class="item-header">
+            <div class="card">
+                <div class="card-header">
                     <div>
-                        <span class="item-title">Hitops / Teen-Pep</span> – <span class="item-subtitle">Peer Leader</span>
+                        <div class="role">Access Immigration Consulting Inc.[cite: 1]</div>
+                        <div class="company">Intern[cite: 1]</div>
                     </div>
-                    <div class="item-location">South Brunswick, NJ</div>
+                    <div class="meta">
+                        <div>New York City, NY[cite: 1]</div>
+                        <div>June 2026 – August 2026[cite: 1]</div>
+                    </div>
                 </div>
-                <div class="item-header">
-                    <div></div>
-                    <div class="item-date">May 2024 – June 2025</div>
+                <ul class="bullets">
+                    <li>Managed relationships with 40+ clients, communicating complex processes and regulatory requirements while navigating strict deadlines[cite: 1].</li>
+                    <li>Synthesized financial and employment records to construct case narratives and make informed assumptions[cite: 1].</li>
+                    <li>Assisted clients in completing complex immigration filings (I-730, N-400, I-360)[cite: 1].</li>
+                    <li>Tailored communication strategies across 10+ foreign client backgrounds in Africa and South Asia for maximum clarity[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="role">Alba Life Sciences[cite: 1]</div>
+                        <div class="company">Remote Intern[cite: 1]</div>
+                    </div>
+                    <div class="meta">
+                        <div>Piscataway, NJ[cite: 1]</div>
+                        <div>July 2024 – September 2024[cite: 1]</div>
+                    </div>
                 </div>
-                <ul>
-                    <li>Mentored underclassmen on sexual education, easing uncomfortable topics such as abstinence and STDs to assist students in becoming more comfortable with these topics.</li>
-                    <li>Prepared skits and engaging workshops for underclassmen to retain information better while maintaining a personable presence.</li>
+                <ul class="bullets">
+                    <li>Researched pharmaceutical market data (approval dates, patent expirations, market duration) to identify revenue opportunities[cite: 1].</li>
+                    <li>Organized research data into structured spreadsheets for clear internal reporting[cite: 1].</li>
+                    <li>Networked with pharmaceutical representatives to promote company services[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Leadership -->
+        <section id="leadership" class="section">
+            <h2 class="section-title">Leadership Experience</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="role">Hitops / Teen-Pep[cite: 1]</div>
+                        <div class="company">Peer Leader[cite: 1]</div>
+                    </div>
+                    <div class="meta">
+                        <div>South Brunswick, NJ[cite: 1]</div>
+                        <div>May 2024 – June 2025[cite: 1]</div>
+                    </div>
+                </div>
+                <ul class="bullets">
+                    <li>Mentored underclassmen on health and education topics, facilitating comfortable discussions[cite: 1].</li>
+                    <li>Designed skits and interactive workshops to improve engagement and information retention[cite: 1].</li>
                 </ul>
             </div>
         </section>
 
         <!-- Community Service -->
-        <section>
-            <h2>Community Service</h2>
+        <section id="service" class="section">
+            <h2 class="section-title">Community Service</h2>
 
-            <div class="item">
-                <div class="item-header">
+            <div class="card">
+                <div class="card-header">
                     <div>
-                        <span class="item-title">Viking Marching Bands</span> – <span class="item-subtitle">Band Guide / Kitchen Support</span>
+                        <div class="role">Viking Marching Bands[cite: 1]</div>
+                        <div class="company">Band Guide / Kitchen Support[cite: 1]</div>
                     </div>
-                    <div class="item-location">South Brunswick, NJ</div>
+                    <div class="meta">
+                        <div>South Brunswick, NJ[cite: 1]</div>
+                        <div>September 2021 – September 2024[cite: 1]</div>
+                    </div>
                 </div>
-                <div class="item-header">
-                    <div></div>
-                    <div class="item-date">September 2021 – September 2024</div>
-                </div>
-                <ul>
-                    <li>Guided multiple out-of-district bands to understand the layout and routine of the school to ensure smooth performances.</li>
-                    <li>Collaborated with other guides by communicating call-out times, sending consistent reminders, and monitoring the band to guarantee success.</li>
-                    <li>Worked in the kitchen to prepare food for the snack shack (burgers, hot dogs, drinks) and handled transport between the kitchen and snack shack.</li>
+                <ul class="bullets">
+                    <li>Guided visiting bands through facility layouts and event schedules to ensure smooth operational flow[cite: 1].</li>
+                    <li>Collaborated with team guides on time management, monitoring, and logistical reminders[cite: 1].</li>
+                    <li>Managed food preparation and logistics between kitchen facilities and concession stations[cite: 1].</li>
                 </ul>
             </div>
         </section>
 
         <!-- Skills & Interests -->
-        <section>
-            <h2>Skills & Interests</h2>
-            <div class="skills-group">
-                <strong>Skills:</strong> Microsoft Office (Excel, PowerPoint) | Java | Python
-            </div>
-            <div class="skills-group">
-                <strong>Interests:</strong> Tech Consulting, Business Analytics, Traveling, Sports
+        <section id="skills" class="section">
+            <h2 class="section-title">Skills & Interests</h2>
+
+            <div class="skills-grid">
+                <div class="tag-group">
+                    <h3>Technical Skills</h3>
+                    <div class="tags">
+                        <span class="tag">Microsoft Excel</span>
+                        <span class="tag">PowerPoint</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="tag-group">
+                    <h3>Interests</h3>
+                    <div class="tags">
+                        <span class="tag">Tech Consulting</span>
+                        <span class="tag">Business Analytics</span>
+                        <span class="tag">Traveling</span>
+                        <span class="tag">Sports</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-    </div>
+    </main>
 
 </body>
 </html>
