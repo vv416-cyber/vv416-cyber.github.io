@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivaan Vijaykrishna | Portfolio</title>
+    <title>Vivaan Vijaykrishna | Finance & Tech Consulting</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
+            --rutgers-red: #cc0033;
+            --rutgers-dark: #8a0022;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
             --bg-body: #f8fafc;
-            --bg-card: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --border: #e2e8f0;
-            --sidebar-width: 280px;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-blue: #2563eb;
+            --border-color: #e2e8f0;
         }
 
         * {
@@ -23,428 +24,469 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
-            display: flex;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* Sidebar Navigation */
-        aside {
-            width: var(--sidebar-width);
-            background: #0f172a;
-            color: #fff;
-            position: fixed;
+        /* Navigation */
+        header {
+            position: sticky;
             top: 0;
-            bottom: 0;
-            left: 0;
-            padding: 2.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .profile h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
             color: #fff;
-            margin-bottom: 0.25rem;
+            z-index: 1000;
+            border-bottom: 3px solid var(--rutgers-red);
         }
 
-        .profile p {
-            color: #94a3b8;
-            font-size: 0.9rem;
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
         }
 
-        nav {
-            margin-top: 2rem;
+        .brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .brand span {
+            color: var(--rutgers-red);
         }
 
         nav ul {
+            display: flex;
             list-style: none;
-        }
-
-        nav li {
-            margin-bottom: 0.75rem;
+            gap: 1.5rem;
         }
 
         nav a {
             color: #cbd5e1;
             text-decoration: none;
-            font-size: 0.95rem;
             font-weight: 500;
-            display: block;
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
-            background: #1e293b;
             color: #fff;
         }
 
-        .sidebar-contact {
-            border-top: 1px solid #334155;
-            padding-top: 1.5rem;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #fff;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--rutgers-red);
+            color: #fff;
+            padding: 0.25rem 0.85rem;
+            border-radius: 50px;
             font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
             color: #94a3b8;
+            margin-bottom: 2rem;
         }
 
-        .sidebar-contact p {
-            margin-bottom: 0.5rem;
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .sidebar-contact a {
-            color: #38bdf8;
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
             text-decoration: none;
+            transition: all 0.2s ease;
         }
 
-        /* Main Content Container */
-        main {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            padding: 3rem 4rem;
+        .btn-primary {
+            background: var(--rutgers-red);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--rutgers-dark);
+        }
+
+        .btn-outline {
+            border: 1px solid #475569;
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background: #334155;
+        }
+
+        /* Section Layout */
+        section {
+            padding: 4rem 2rem;
             max-width: 1100px;
-        }
-
-        .section {
-            margin-bottom: 3.5rem;
-            scroll-margin-top: 2rem;
+            margin: 0 auto;
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--border);
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
         }
 
-        /* Cards */
+        /* Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
         .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            background: #fff;
+            border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.25rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 1.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
         }
 
-        .role {
-            font-size: 1.1rem;
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .card-subtitle {
+            color: var(--accent-blue);
             font-weight: 600;
-            color: var(--text-main);
+            font-size: 0.95rem;
         }
 
-        .company {
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        .meta {
+        .card-date {
             font-size: 0.85rem;
             color: var(--text-muted);
-            text-align: right;
+            background: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
         }
 
-        ul.bullets {
-            list-style-type: none;
-            margin-top: 0.75rem;
+        ul.card-bullets {
+            list-style: none;
+            margin-top: 1rem;
         }
 
-        ul.bullets li {
+        ul.card-bullets li {
             position: relative;
             padding-left: 1.25rem;
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.5;
+            color: #475569;
         }
 
-        ul.bullets li::before {
+        ul.card-bullets li::before {
             content: "•";
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: var(--rutgers-red);
             font-weight: bold;
         }
 
-        /* Tags / Skills */
-        .skills-grid {
+        /* Interactive Widget Section */
+        .widget-section {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .widget-form {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .tag-group {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
-        }
-
-        .tag-group h3 {
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-main);
-        }
-
-        .tags {
+        .form-group {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 0.5rem;
         }
 
-        .tag {
-            background: #eff6ff;
-            color: var(--primary);
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
+        .form-group label {
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--text-main);
         }
 
-        /* Responsive Design */
-        @media (max-width: 850px) {
-            body {
+        .form-group input {
+            padding: 0.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .calc-result {
+            background: #f8fafc;
+            border-left: 4px solid var(--rutgers-red);
+            padding: 1rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            background: var(--bg-dark);
+            color: #fff;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-container p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
                 flex-direction: column;
+                gap: 1rem;
             }
-            aside {
-                width: 100%;
-                position: relative;
-                padding: 2rem;
-            }
-            main {
-                margin-left: 0;
-                padding: 2rem 1.5rem;
-            }
-            .card-header {
-                flex-direction: column;
-            }
-            .meta {
-                text-align: left;
-                margin-top: 0.25rem;
+            .hero h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <aside>
-        <div>
-            <div class="profile">
-                <h1>Vivaan Vijaykrishna</h1>
-                <p>Finance Student & Analyst</p>
-            </div>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <div class="brand">Vivaan <span>Vijaykrishna</span></div>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
                     <li><a href="#experience">Experience</a></li>
-                    <li><a href="#leadership">Leadership</a></li>
-                    <li><a href="#service">Community Service</a></li>
-                    <li><a href="#skills">Skills & Interests</a></li>
+                    <li><a href="#calculator">Tool</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
-        <div class="sidebar-contact">
-            <p>📍 Princeton, NJ</p>
-            <p>📞 609-455-6492</p>
-            <p>✉️ <a href="mailto:vvaanvk@gmail.com">vvaanvk@gmail.com</a></p>
-        </div>
-    </aside>
+    </header>
 
-    <!-- Main Content Area -->
+    <!-- Hero Section -->
+    <div class="hero" id="about">
+        <div class="hero-content">
+            <span class="badge">Rutgers Business School '29</span>
+            <h1>Finance Student & Business Analytics Specialist</h1>
+            <p>Combining quantitative research, client strategy, and technology to optimize business operations and yield actionable market insights.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#calculator" class="btn btn-outline">Try Financial Tool</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <main>
 
-        <!-- About Intro -->
-        <section id="about" class="section">
-            <div class="card" style="background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; border: none;">
-                <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem; color: #fff;">Hello, I'm Vivaan.</h2>
-                <p style="color: #dbeafe; font-size: 1rem; line-height: 1.6;">
-                    Finance student at Rutgers Business School with experience in market research, regulatory documentation, and client relations. Interested in tech consulting and business analytics.
-                </p>
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title">Work & Leadership Experience</h2>
+            <p class="section-subtitle">A summary of my professional roles and strategic contributions.</p>
+
+            <div class="grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Access Immigration Consulting Inc.</div>
+                            <div class="card-subtitle">Intern | New York City, NY</div>
+                        </div>
+                        <span class="card-date">Summer 2026</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Managed client relationships across 40+ high-stakes regulatory cases with strict deadlines.</li>
+                        <li>Synthesized complex financial and employment documentation to draft case narratives.</li>
+                        <li>Tailored strategic communication across 10+ international client regions in Africa and South Asia.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Alba Life Sciences</div>
+                            <div class="card-subtitle">Remote Intern | Piscataway, NJ</div>
+                        </div>
+                        <span class="card-date">2024</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Researched pharmaceutical market lifecycles (approvals, patent expirations) to optimize sales strategies.</li>
+                        <li>Organized large-scale analytical datasets into structured executive spreadsheets.</li>
+                        <li>Engaged with industry representatives to expand company service networking.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Hitops / Teen-Pep</div>
+                            <div class="card-subtitle">Peer Leader | South Brunswick, NJ</div>
+                        </div>
+                        <span class="card-date">2024 – 2025</span>
+                    </div>
+                    <ul class="card-bullets">
+                        <li>Facilitated health and wellness workshops for underclassmen.</li>
+                        <li>Designed interactive skits and team-building exercises to elevate student engagement.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <!-- Education -->
-        <section id="education" class="section">
-            <h2 class="section-title">Education</h2>
-            
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="role">Rutgers University[cite: 1]</div>
-                        <div class="company">Rutgers Business School[cite: 1]</div>
-                    </div>
-                    <div class="meta">
-                        <div>Piscataway, NJ[cite: 1]</div>
-                        <div>Expected Graduation: May 2029[cite: 1]</div>
-                    </div>
-                </div>
-                <ul class="bullets">
-                    <li>Bachelor of Science in Finance[cite: 1]</li>
-                    <li>GPA: 3.7 / 4.0[cite: 1]</li>
-                </ul>
-            </div>
+        <!-- Interactive Calculator Section -->
+        <section id="calculator">
+            <h2 class="section-title">Interactive Business Tool</h2>
+            <p class="section-subtitle">An interactive ROI & Project Margin Estimator tool demonstrating analytical logic.</p>
 
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="role">South Brunswick High School[cite: 1]</div>
+            <div class="widget-section">
+                <div class="widget-form">
+                    <div class="form-group">
+                        <label for="investment">Initial Investment ($)</label>
+                        <input type="number" id="investment" value="10000" oninput="calculateROI()">
                     </div>
-                    <div class="meta">
-                        <div>South Brunswick, NJ[cite: 1]</div>
-                        <div>Graduated: June 2025[cite: 1]</div>
+                    <div class="form-group">
+                        <label for="revenue">Projected Revenue ($)</label>
+                        <input type="number" id="revenue" value="14500" oninput="calculateROI()">
                     </div>
                 </div>
-                <ul class="bullets">
-                    <li>Cumulative GPA: 4.33[cite: 1]</li>
-                </ul>
+                <div class="calc-result" id="roi-output">
+                    <strong>Estimated Net Gain:</strong> $4,500 <br>
+                    <strong>Calculated Return on Investment (ROI):</strong> 45.00%
+                </div>
             </div>
         </section>
 
-        <!-- Experience -->
-        <section id="experience" class="section">
-            <h2 class="section-title">Work Experience</h2>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="role">Access Immigration Consulting Inc.[cite: 1]</div>
-                        <div class="company">Intern[cite: 1]</div>
-                    </div>
-                    <div class="meta">
-                        <div>New York City, NY[cite: 1]</div>
-                        <div>June 2026 – August 2026[cite: 1]</div>
-                    </div>
-                </div>
-                <ul class="bullets">
-                    <li>Managed relationships with 40+ clients, communicating complex processes and regulatory requirements while navigating strict deadlines[cite: 1].</li>
-                    <li>Synthesized financial and employment records to construct case narratives and make informed assumptions[cite: 1].</li>
-                    <li>Assisted clients in completing complex immigration filings (I-730, N-400, I-360)[cite: 1].</li>
-                    <li>Tailored communication strategies across 10+ foreign client backgrounds in Africa and South Asia for maximum clarity[cite: 1].</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="role">Alba Life Sciences[cite: 1]</div>
-                        <div class="company">Remote Intern[cite: 1]</div>
-                    </div>
-                    <div class="meta">
-                        <div>Piscataway, NJ[cite: 1]</div>
-                        <div>July 2024 – September 2024[cite: 1]</div>
-                    </div>
-                </div>
-                <ul class="bullets">
-                    <li>Researched pharmaceutical market data (approval dates, patent expirations, market duration) to identify revenue opportunities[cite: 1].</li>
-                    <li>Organized research data into structured spreadsheets for clear internal reporting[cite: 1].</li>
-                    <li>Networked with pharmaceutical representatives to promote company services[cite: 1].</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Leadership -->
-        <section id="leadership" class="section">
-            <h2 class="section-title">Leadership Experience</h2>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="role">Hitops / Teen-Pep[cite: 1]</div>
-                        <div class="company">Peer Leader[cite: 1]</div>
-                    </div>
-                    <div class="meta">
-                        <div>South Brunswick, NJ[cite: 1]</div>
-                        <div>May 2024 – June 2025[cite: 1]</div>
-                    </div>
-                </div>
-                <ul class="bullets">
-                    <li>Mentored underclassmen on health and education topics, facilitating comfortable discussions[cite: 1].</li>
-                    <li>Designed skits and interactive workshops to improve engagement and information retention[cite: 1].</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Community Service -->
-        <section id="service" class="section">
-            <h2 class="section-title">Community Service</h2>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="role">Viking Marching Bands[cite: 1]</div>
-                        <div class="company">Band Guide / Kitchen Support[cite: 1]</div>
-                    </div>
-                    <div class="meta">
-                        <div>South Brunswick, NJ[cite: 1]</div>
-                        <div>September 2021 – September 2024[cite: 1]</div>
-                    </div>
-                </div>
-                <ul class="bullets">
-                    <li>Guided visiting bands through facility layouts and event schedules to ensure smooth operational flow[cite: 1].</li>
-                    <li>Collaborated with team guides on time management, monitoring, and logistical reminders[cite: 1].</li>
-                    <li>Managed food preparation and logistics between kitchen facilities and concession stations[cite: 1].</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Skills & Interests -->
-        <section id="skills" class="section">
-            <h2 class="section-title">Skills & Interests</h2>
-
-            <div class="skills-grid">
-                <div class="tag-group">
-                    <h3>Technical Skills</h3>
-                    <div class="tags">
-                        <span class="tag">Microsoft Excel</span>
-                        <span class="tag">PowerPoint</span>
-                        <span class="tag">Java</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </div>
-
-                <div class="tag-group">
-                    <h3>Interests</h3>
-                    <div class="tags">
-                        <span class="tag">Tech Consulting</span>
-                        <span class="tag">Business Analytics</span>
-                        <span class="tag">Traveling</span>
-                        <span class="tag">Sports</span>
-                    </div>
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-container">
+                <h2>Let's Connect</h2>
+                <p>I am open to tech consulting, business analytics, and finance internship opportunities.</p>
+                <div class="contact-links">
+                    <a href="mailto:vvaanvk@gmail.com" class="contact-item">✉️ vvaanvk@gmail.com</a>
+                    <span class="contact-item">📍 Princeton, NJ</span>
+                    <span class="contact-item">📞 (609) 455-6492</span>
                 </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Vivaan Vijaykrishna | Rutgers Business School Finance</p>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        function calculateROI() {
+            const investment = parseFloat(document.getElementById('investment').value) || 0;
+            const revenue = parseFloat(document.getElementById('revenue').value) || 0;
+            const netGain = revenue - investment;
+            
+            let roi = 0;
+            if (investment > 0) {
+                roi = (netGain / investment) * 100;
+            }
+
+            const outputDiv = document.getElementById('roi-output');
+            outputDiv.innerHTML = `
+                <strong>Estimated Net Gain:</strong> $${netGain.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} <br>
+                <strong>Calculated Return on Investment (ROI):</strong> ${roi.toFixed(2)}%
+            `;
+        }
+    </script>
 </body>
 </html>
